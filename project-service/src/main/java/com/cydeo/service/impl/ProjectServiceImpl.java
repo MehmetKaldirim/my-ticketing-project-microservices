@@ -114,7 +114,7 @@ public class ProjectServiceImpl implements ProjectService {
 
     @Override
     @CircuitBreaker(name="user-service",fallbackMethod = "userServiceFallBack")
-    //@Retry(name = "user-service",fallbackMethod = "userServiceRetryFallBack")
+    @Retry(name = "user-service",fallbackMethod = "userServiceRetryFallBack")
     public List<ProjectDTO> listAllProjectDetails(String userName) throws ProjectServiceException {
 
         UserResponseDTO userResponseDto = userClientService.getUserDTOByUserName(userName);
@@ -145,10 +145,10 @@ public class ProjectServiceImpl implements ProjectService {
         return new ArrayList<>();
     }
 
-    //public List<ProjectDTO> userServiceRetryFallBack(String userName,Exception e){
-    //    logger.error("Retried 3 times. User-service is not healthy {}",e.getMessage());
-    //    return new ArrayList<>();
-    //}
+    public List<ProjectDTO> userServiceRetryFallBack(String userName,Exception e){
+        logger.error("Retried 3 times. User-service is not healthy {}",e.getMessage());
+        return new ArrayList<>();
+    }
 
     @Override
     public List<ProjectDTO> readAllByAssignedManager(User user) {
