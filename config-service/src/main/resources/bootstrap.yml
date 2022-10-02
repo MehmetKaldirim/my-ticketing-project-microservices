@@ -10,5 +10,7 @@ spring:
           uri: https://github.com/MehmetKaldirim/my-ticketing-project-microservice-config.git
           default-label: master
           username: MehmetKaldirim
-          password: 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
+          password: '{cipher}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'
       fail-fast: true
+encrypt:
+  key: cydeo

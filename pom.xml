@@ -14,7 +14,7 @@
         <module>app-client-management</module>
         <module>discovery-service</module>
         <module>gateway-service</module>
-        <module>config-server</module>
+        <module>config-service</module>
     </modules>
 
     <parent>
@@ -94,6 +94,7 @@
                 <artifactId>spring-cloud-starter-openfeign</artifactId>
                 <version>${spring-cloud.version}</version>
             </dependency>
+
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
@@ -101,12 +102,12 @@
             </dependency>
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-starter-gateway</artifactId>
+                <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
                 <version>${spring-cloud.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+                <artifactId>spring-cloud-starter-gateway</artifactId>
                 <version>${spring-cloud.version}</version>
             </dependency>
             <dependency>
@@ -134,10 +135,21 @@
                 <artifactId>spring-cloud-config-client</artifactId>
                 <version>${spring-cloud.version}</version>
             </dependency>
+
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-aop</artifactId>
                 <version>${spring-boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.micrometer</groupId>
+                <artifactId>micrometer-registry-prometheus</artifactId>
+                <version>${micrometer-registry-prometheus.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.micrometer</groupId>
+                <artifactId>micrometer-core</artifactId>
+                <version>${micrometer-registry-prometheus.version}</version>
             </dependency>
 
             <dependency>
@@ -158,19 +170,6 @@
                 <version>${lombok.version}</version>
                 <scope>provided</scope>
             </dependency>
-            <dependency>
-                <groupId>io.micrometer</groupId>
-                <artifactId>micrometer-registry-prometheus</artifactId>
-                <version>${micrometer-registry-prometheus.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.micrometer</groupId>
-                <artifactId>micrometer-core</artifactId>
-                <version>${micrometer-registry-prometheus.version}</version>
-            </dependency>
-
-
-
         </dependencies>
     </dependencyManagement>
 

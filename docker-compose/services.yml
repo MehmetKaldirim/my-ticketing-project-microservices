@@ -30,7 +30,7 @@ services:
     depends_on:
       database:
         condition: service_healthy
-      configserver:
+      config-service:
         condition: service_started
     ports:
       - "9093:9093"
@@ -47,7 +47,7 @@ services:
     depends_on:
       database:
         condition: service_healthy
-      configserver:
+      config-service:
         condition: service_started
     ports:
       - "9091:9091"
@@ -115,13 +115,13 @@ services:
       - backend
 
   configserver:
-    image: ${GROUP_ID}/config-server:${SERVICE_VERSION:-latest}
+    image: ${GROUP_ID}/config-service:${SERVICE_VERSION:-latest}
     ports:
       - "8888:8888"
     networks:
       backend:
         aliases:
-          - "configserver"
+          - "config-service"
 networks:
   backend:
     driver: bridge
