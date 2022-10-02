@@ -4,12 +4,11 @@ spring:
   profiles:
     active: git
   cloud:
-    config:
-      server:
-        git:
-          uri: https://github.com/MehmetKaldirim/my-ticketing-project-microservice-config.git
-          default-label: master
-          username: MehmetKaldirim
-          password: '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'
-      fail-fast: true
-
+   config:
+     server:
+       git:
+         uri: https://github.com/MehmetKaldirim/my-ticketing-project-microservice-config.git
+         default-label: master
+         username: MehmetKaldirim
+         password: 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
+       fail-fast: true
